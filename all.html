@@ -1,0 +1,164 @@
+<html>
+<head>
+<style language='text/css'>
+td { color: Powder Blue;
+     font-size:26px;
+      }
+
+</style>
+<script>
+(function(document) {
+  'use strict';
+
+  // 建立 LightTableFilter
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    // 資料輸入事件處理函數
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      // 初始化函數
+      init: function() {
+        var inputs = document.getElementsByClassName('light-table-filter');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  // 網頁載入完成後，啟動 LightTableFilter
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+</script>
+<form>
+<h2 style= "background:#FFC1E0">搜尋:<input type="search"  class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字"style= "background-color:transparent;border:0;font-size:16px" name="t2"/> </td><a href="index.html">回首頁</a><h2>
+</form>
+
+</head>
+<body background="1.jpg">
+<table class="order-table" align="center">
+
+  <thead>
+    <tr>
+      <th>類別</th>
+      <th>名稱</th>
+      <th>圖片</th>
+      <th>製作方式連結</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class = 'Periwinkle'>免烤箱</td>
+      <td>乳酪造型草莓慕斯</td>
+      <td><img src="all-images/1.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/14904109-%E5%85%8D%E7%83%A4%E7%AE%B1%E3%80%8C%E4%B9%B3%E9%85%AA%E9%80%A0%E5%9E%8B%E8%8D%89%E8%8E%93%E6%85%95%E6%96%AF%E3%80%8D%E8%8E%93%E6%9E%9C%E5%91%B3%E5%A5%BD%E6%BB%8B%E5%91%B3?ref=search&search_term=%E5%85%8D%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>免烤箱</td>
+      <td>草莓果醬生乳酪塔</td>
+      <td><img src="all-images/3.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/11807034-%E8%8D%89%E8%8E%93%E6%9E%9C%E9%86%AC%E7%94%9F%E4%B9%B3%E9%85%AA%E5%A1%94?ref=search&search_term=%E5%85%8D%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>免烤箱</td>
+      <td>乳牛起士蛋糕</td>
+      <td><img src="all-images/2.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/14605960-%E5%85%8D%E7%83%A4%E7%AE%B1%E3%80%8C%E4%B9%B3%E7%89%9B%E8%B5%B7%E5%A3%AB%E8%9B%8B%E7%B3%95%E3%80%8D%E5%8F%AF%E6%84%9B%E5%8F%88%E7%B0%A1%E6%98%93%E7%94%9C%E9%BB%9E?ref=search&search_term=%E5%85%8D%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>烤箱</td>
+      <td>萬聖節巫婆手指餅乾</td>
+      <td><img src="all-images/4.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/10932678-%E8%90%AC%E8%81%96%E7%AF%80%E5%B7%AB%E5%A9%86%E6%89%8B%E6%8C%87%E9%A4%85%E4%B9%BE-%E6%8A%B9%E8%8C%B6%E5%8F%A3%E5%91%B3%E5%B0%8F%E7%83%A4%E7%AE%B1%E7%89%88?ref=search&search_term=%E7%94%9C%E9%BB%9E%20%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>烤箱</td>
+      <td>南瓜松子黑糖糕</td>
+      <td><img src="all-images/5.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/2048173-%E5%8D%97%E7%93%9C%E6%9D%BE%E5%AD%90%E9%BB%91%E7%B3%96%E7%B3%95%E7%83%A4%E7%AE%B1%E7%89%88?ref=search&search_term=%E7%94%9C%E9%BB%9E%20%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+    
+    <tr>
+      <td>烤箱</td>
+      <td>巧克力餅乾</td>
+      <td><img src="all-images/6.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/5579382-%E5%B0%8F%E7%83%A4%E7%AE%B1-%E5%B7%A7%E5%85%8B%E5%8A%9B%E9%A4%85%E4%B9%BE?ref=search&search_term=%E7%94%9C%E9%BB%9E%20%E7%83%A4%E7%AE%B1">點這</a></td>
+    </tr>
+    
+    <tr>
+      <td>氣炸鍋</td>
+      <td>起士棒餅乾</td>
+      <td><img src="all-images/7.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/15114352-%E9%9B%B6%E6%8A%80%E5%B7%A7%E3%80%8C%E8%B5%B7%E5%A3%AB%E6%A3%92%E9%A4%85%E4%B9%BE%E3%80%8D%E5%A5%BD%E9%85%A5%E8%84%86%E5%A5%BD%E6%B6%AE%E5%98%B4">點這</a></td>
+    </tr>
+    
+    <tr>
+      <td>氣炸鍋</td>
+      <td>氣炸鍋-餅乾</td>
+      <td><img src="all-images/8.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/15113199-%E6%B0%A3%E7%82%B8%E9%8D%8B-%E9%A4%85%E4%B9%BE?ref=search&search_term=%E8%B6%85%E7%B0%A1%E5%96%AE%E7%94%9C%E9%BB%9E">點這</a></td>
+    </tr>
+    
+    <tr>
+      <td>電鍋</td>
+      <td>樸實無華香蕉蛋糕</td>
+      <td><img src="all-images/9.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/15112961-%E6%A8%B8%E5%AF%A6%E7%84%A1%E8%8F%AF%E9%A6%99%E8%95%89%E8%9B%8B%E7%B3%95%E9%AC%86%E9%A4%85%E7%B2%89%E5%8F%8A%E9%9B%BB%E9%8D%8B?ref=search&search_term=%E9%9B%BB%E9%8D%8B&find_method=search">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>電鍋</td>
+      <td>電鍋版巧克力純素蛋糕</td>
+      <td><img src="all-images/10.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/15042237-%E5%A4%A7%E5%90%8C%E9%9B%BB%E9%8D%8B%E7%89%88%E5%B7%A7%E5%85%8B%E5%8A%9B%E7%B4%94%E7%B4%A0%E6%97%A6%E7%B3%95?ref=search&search_term=%E9%9B%BB%E9%8D%8B">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>電鍋</td>
+      <td>黑糖赤小紅豆湯</td>
+      <td><img src="all-images/11.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/14789730-%E5%A4%A7%E5%90%8C%E9%9B%BB%E9%8D%8B%E9%BB%91%E7%B3%96%E8%B5%A4%E5%B0%8F%E7%B4%85%E8%B1%86%E6%B9%AF?ref=search&search_term=%E9%9B%BB%E9%8D%8B">點這</a></td>
+    </tr>
+
+    <tr>
+      <td>鬆餅機</td>
+      <td>鮮奶油甜甜圈</td>
+      <td><img src="all-images/12.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/10437953-%E9%AE%AE%E5%A5%B6%E6%B2%B9%E7%94%9C%E7%94%9C%E5%9C%88-vitantonio%E9%AC%86%E9%A4%85%E6%A9%9F?ref=search&search_term=%E9%AC%86%E9%A4%85%E6%A9%9F">點這</a></td>
+    </tr>
+    <tr>
+      <td>鬆餅機</td>
+      <td>鬆餅捲</td>
+      <td><img src="all-images/13.jpg"></td>
+      <td><a href="https://cookpad.com/tw/%E9%A3%9F%E8%AD%9C/9168414-%E9%AC%86%E9%A4%85%E6%8D%B2-vitantonio%E9%AC%86%E9%A4%85%E6%A9%9F?ref=search&search_term=%E9%AC%86%E9%A4%85%E6%A9%9F">點這</a></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
